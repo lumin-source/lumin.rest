@@ -36,6 +36,7 @@ const credits: CreditPerson[] = [
     username: "xootzie",
     avatar: "https://avatars.githubusercontent.com/u/112367858",
     links: [
+       { label: "website", url: "https://angelx.win/" },
       { label: "github", url: "https://github.com/xootzie/" },
       { label: "discord", url: "https://discord.com/users/244522485314224128" },
     ],
