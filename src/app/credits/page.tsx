@@ -15,6 +15,7 @@ interface CreditLink {
 
 interface CreditPerson {
   name: string;
+  username?: string;
   avatar: string;
   links?: CreditLink[];
 }
@@ -32,6 +33,7 @@ const credits: CreditPerson[] = [
   },
   {
     name: "Alpine",
+    username: "xootzie",
     avatar: "https://avatars.githubusercontent.com/u/112367858",
     links: [
       { label: "github", url: "https://github.com/xootzie/" },
@@ -118,20 +120,27 @@ export default function Credits() {
                         className="object-cover"
                       />
                     </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-sm font-medium">{person.name}</span>
-                      {person.links?.map((link) => (
-                        <a
-                          key={link.url}
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={link.label}
-                          className="text-muted-foreground transition-colors hover:text-foreground"
-                        >
-                          {linkIcon(link.label)}
-                        </a>
-                      ))}
+                    <div className="flex flex-col items-center gap-0.5">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-sm font-medium">{person.name}</span>
+                        {person.links?.map((link) => (
+                          <a
+                            key={link.url}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={link.label}
+                            className="text-muted-foreground transition-colors hover:text-foreground"
+                          >
+                            {linkIcon(link.label)}
+                          </a>
+                        ))}
+                      </div>
+                      {person.username && (
+                        <span className="text-xs text-neutral-600">
+                          @{person.username}
+                        </span>
+                      )}
                     </div>
                   </div>
                 </BlurFade>
